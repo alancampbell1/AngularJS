@@ -1,0 +1,26 @@
+<!--
+	The ng-model directive binds the value of HTML controls (input, select, textarea) to application data
+	In the following example we have an input box with some text attached to it.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		Name: <input ng-model="name">
+	</div>
+</body>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope){
+		$scope.name = "Alan Campbell";
+	});
+</script>
+
+</html>

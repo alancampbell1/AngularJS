@@ -1,0 +1,45 @@
+<!--
+	Filters can be added in AngularJS to format/transform data.
+	Examples include:
+	- currency: format a number to a currency format
+	- date: format a date to a specified format
+	- filter: select a subset of items from an array
+	- json: format an object to a JSON string
+
+	Filters can be added to directives, like ng-repeat by using the | pipe character.
+	Directives are features in AngularJS that allows you to extend HTML with new attributes.
+	
+	The following example adds an 'orderBy' filter to the 'ng-repeat' directive when printing out the names and countries associated with each object looped through.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+<div ng-app="myApp" ng-controller="namesCtrl">
+<ul>
+	<!-- We put a filter on the directive 'ng-repeat' to order the list by Country in alphabetical order -->
+	<li ng-repeat="x in names | orderBy: 'country'">
+		{{ x.name + ', ' + x.country }}
+	</li>
+</ul>
+</div>
+
+<script>
+	angular.module('myApp', []).controller('namesCtrl', function($scope){
+		$scope.names = [
+			{name: 'Alan', country: 'Ireland'},
+			{name: 'Niall', country: 'England'},
+			{name: 'Grace', country: 'Australia'},
+			{name: 'Martina', country: 'Scotland'},
+			{name: 'Paul', country: 'Spain'}
+		];
+	});
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--
+	Forms in AngularJS provides data-binding and validation of input controls.
+	Input controls are HTML input elements such as input elements, select elements, button elements and textarea elements.
+	
+	The following is a full example of a form using AngularJS. There is an option to reset the form to default values with a button click.
+
+	Breakdown of Example:
+	ng-app directive defines the AngularJS application.
+	ng-controller directive defines the application controller.
+	ng-model directive binds the two input elements to the user object in the model.
+	formCtrl controller sets the user object equal to the master object.
+	ng-click directive invokes the reset() method, only if the button is clicked.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+	<form novalidate>
+		First Name:<br>
+		<input type="text" ng-model="user.firstName"><br>
+		Last Name:<br>
+		<input type="text" ng-model="user.lastName"><br><br>
+		<button ng-click="reset()">Reset</button>
+	</form>
+	<p>form = {{user}}</p>
+	<p>master = {{master}}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('formCtrl', function($scope){
+		//we set the variables firstname and lastname accordingly within the object 'master'
+		$scope.master = {firstName:"John", lastName:"Doe"};
+		//function entitled reset that resets the variables in master to their default above.
+		$scope.reset = function(){
+			$scope.user = angular.copy($scope.master);
+		};
+		$scope.reset();
+	});
+</script>
+</body>
+</html>

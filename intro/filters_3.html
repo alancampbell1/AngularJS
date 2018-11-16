@@ -1,0 +1,42 @@
+<!--
+	Filters can be added in AngularJS to format/transform data.
+	Examples include:
+	- currency: format a number to a currency format
+	- date: format a date to a specified format
+	- filter: select a subset of items from an array
+	- json: format an object to a JSON string
+
+	The 'filter' filter selects a subset from an array. They can only be used on Arrays and it returns an Array containing only matched items.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+<div ng-app="myApp" ng-controller="namesCtrl">
+<ul>
+	<!-- In this instance of the 'filter' filter we only want names containing the letter 'i'. These names are returned into their own Array -->
+	<li ng-repeat="x in names | filter: 'i'">
+		{{ x }}
+	</li>
+</ul>
+</div>
+
+<script>
+	angular.module('myApp', []).controller('namesCtrl', function($scope){
+		$scope.names = [
+			'Alan',
+			'Niall',
+			'Grace',
+			'Martina',
+			'Paul'
+		];
+	});
+</script>
+	
+</body>
+</html>

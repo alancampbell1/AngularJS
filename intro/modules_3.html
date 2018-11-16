@@ -1,0 +1,28 @@
+<!--
+	In this example we will add a Directive to the application. 
+	These directives can be used to add functionality to an application.
+	They are both in-built and can be your own.
+
+	This example creates your own.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+	<div ng-app="myApp" w3-test-directive></div>
+
+	<script>
+		var app = angular.module("myApp", []);
+
+		app.directive("w3TestDirective", function(){
+			return {
+				template : "I was made in a directive constructor."
+			};
+		});
+	</script>
+</body>
+</html>

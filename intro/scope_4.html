@@ -1,0 +1,44 @@
+<!--
+	The scope is the binding part between the HTML (view) and the JavaScript (controller).
+	The scope is an object with the available properties and methods.
+	It is also available for both the view and controller.
+
+	All applications have a $rootScope which is the scope created on the HTML element that contains the ng-app directive.
+	The rootScope is available throughout the entire application.
+	If a variable has the same name in both the current scope and rootScope, the application uses the one in the current scope.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="myApp">
+	<p>The rootScope's favourite colour is </p>
+	<h2>{{color}}</h2>
+	
+	<div ng-controller="myCtrl">
+		<p>The scope of the controller's favourite colour is </p>
+		<h2>{{color}}</h2>
+	</div>
+
+	<p>The rootScope's favourite colour is </p>
+	<h2>{{color}}</h2>
+
+	<script>
+		//At the root scope, the variable 'color' is set to blue
+		var app = angular.module('myApp', []);
+		app.run(function($rootScope){
+			$rootScope.color = 'blue';
+		});
+		//At the controller scope, the variable 'color' is set to red
+		app.controller('myCtrl', function($scope){
+			$scope.color = "red";
+		});
+	</script>
+
+</body>
+</html>

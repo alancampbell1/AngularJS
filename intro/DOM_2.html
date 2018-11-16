@@ -1,0 +1,40 @@
+<!--
+	AngularJS has directives for binding application data to the attributes of HTML DOM elements.
+	DOM Recap:
+	When a webpage is loaded, the browser creates a Document Object Model of the page. The HTML DOM model can be viewed as a tree of Objects.
+	With the object model, JavaScript (and AngularJS) can carry out commands to make the HTML webpage more dynamic including:
+	- Changing HTML elements in a page
+	- Changing HTML attributes in a page
+	- Changing CSS styles in a page
+	- Removing existing HTML elements and attributes
+	- Adding new HTML elements and attributes
+	- Reacting to existing HTML events in a page
+	- Creating new HTML events in a page
+
+	The ng-show directive shows or hides an HTML element.
+	This is based on the value of the ng-show.
+
+	The ng-hide directive does the same but in opposite order to the ng-show directive.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="">
+	<!-- Due to ng-show set to true, the text is visible on the screen -->
+	<p ng-show="true">I am visible</p>
+	<!-- Due to ng-show set to false, the following text is not visible on the screen -->
+	<p ng-show="false">I am not visible</p>
+
+	<p ng-hide="false">I am visible</p>
+	<p ng-hide="true">I am not visible</p>
+</div>
+</body>
+</html>

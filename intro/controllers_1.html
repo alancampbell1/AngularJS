@@ -1,0 +1,41 @@
+<!--
+	AngularJS controllers control the data of AngularJS applications. They are known as regular JavaScript Objects.
+
+	The ng-controller directive defines the application controller.
+	A controller is a JavaScript Object, created by a standard JS object constructor.
+
+	FULL BREAKDOWN:
+	The AngularJS application is defined by ng-app="myApp". This runs inside the <div> element.
+	The controller is defined by ng-controller="myCtrl". This is also known as an AngularJS directive.
+	'myCtrl' is also a JavaScript function.
+	AngularJS invokes the controller with a $scope object. $scope is an application object (owner of application variables and functions).
+	The controller creates 2 properties/variables in the scope called 'firstname' and 'lastname'.
+	The ng-model directives bind the input fields to the controller properties.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	First name: <input type="text" ng-model="firstname">
+	<br>
+	Last name: <input type="text" ng-model="lastname">
+	<br>
+	Full name: {{firstname + " " + lastname}}
+</div>
+
+<body>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope){
+			$scope.firstname = "Alan";
+			$scope.lastname = "Campbell";
+		});
+	</script>
+	
+</body>
+</html>

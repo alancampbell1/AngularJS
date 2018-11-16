@@ -1,0 +1,45 @@
+<!--
+	AngularJS is perfect for displaying data from a Database. It is important that the data is in JSON format.
+
+	Cross Site HTTP Requests:
+	Requests for data from a different server is called a cross-site HTTP request.
+	Cross-site requests are common on the web. Many pages load CSS, images and scripts from different servers.
+	In modern browsers, cross-site HTTP requests from scripts are restricted to same site for security reasons.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<table>
+  	<tr ng-repeat="x in names">
+    	<td>{{ x.id }}</td>
+    	<td>{{ x.name }}</td>
+  	</tr>
+	</table>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http){
+		//making a GET request to return the data from online link
+		$http.get("https://jsonplaceholder.typicode.com/users")
+		.then(function(response){
+			//.data contains the string/object carrying the response
+			$scope.names = response.data;
+		},
+		function (response){
+			//this second function only runs if the GET response did not work
+			$scope.myData = "Something went wrong";
+		});
+	});
+</script>
+</body>
+</html>

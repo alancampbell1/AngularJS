@@ -1,0 +1,38 @@
+<!--
+	AngularJS has its own HTML events directives.
+	You can add AngularJS event listeners to your HTML elements by using one or more of these directives examples: ng-blur, ng-change, ng-click, ng-copy, ng-cut, ng-dblclick, ng-focus, ng-keydown etc.
+
+	Event directives allows us to run AngularJS functions at certain user events.
+	AngularJS events will not overwrite a HTML event. Both will be executed.
+
+	This example will focus on Mouse Events. Mouse events occur when the cursor moves over an element (ng-mouseover, ng-mouseenter, ng-mousemove, ng-mouseleave) or when a mouse button is clicked over an element (ng-mousedown, ng-mouseup, ng-click).
+
+	The following example increases a count variable when the mouse moves over the H1 element.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<!-- Everytime a mouse moves over the h2 element, count is incremented -->
+	<h1 ng-mousemove="count = count + 1">Mouse over me!</h1>
+	<!-- Everytime the mouse clicks the button, count is incremented -->
+	<button ng-click="count = count + 1">Click Me!</button>
+
+	<h2>{{ count }}</h2>
+</div>
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope){
+		$scope.count = 0;
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!--
+	A service, in AngularJS, is a function or an object that is available for and limited to your AngularJS application.
+
+	AngularJS allows you to use one of their 30 in-built services or create one your self.
+
+	The $http service is one of the most commonly used services. The service makes a request to a server and lets your application handle the response.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<p>Today's welcome message</p>
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>{{ myWelcome }}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http) {
+		$http.get("welcome.htm").then(function (response){
+			$scope.myWelcome = response.data;
+		});
+	});
+</script>
+	
+</body>
+</html>

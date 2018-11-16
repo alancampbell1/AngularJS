@@ -1,0 +1,29 @@
+<!--
+	The ng-model directive binds the value of HTML controls (input, select, textarea) to application data
+	The ng-model directive can provide status for application data, e.g. invalid, dirty, touched, error.
+
+	If true is returned from $valid then the email meets all the criteria.
+	If true is returned from $dirty then the value has been changed.
+	If true is returned from $touched then the field has been in focus.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+	<form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
+		Email:
+		<input type="email" name="myAddress" ng-model="myText" required>
+		<h1>Status</h1>
+		{{myForm.myAddress.$valid}}
+		{{myForm.myAddress.$dirty}}
+		{{myForm.myAddress.$touched}}
+	</form>
+</body>
+
+
+</html>

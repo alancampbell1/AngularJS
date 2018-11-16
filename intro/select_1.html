@@ -1,0 +1,41 @@
+<!--
+	AngularJS lets you create a dropdown list based on items in an array or an object.
+	The following example demonstrates how to create a dropdown select box using an Array of names and the ng-options directive.
+	However you can also use the ng-repeat directive to create the same dropdown list.
+
+	Difference between using ng-options and ng-repeat:
+	- ng-options was created specifically for dropdowns
+	- ng-options allows the selected value to be an object which ng-repreat values has to be a string.
+	- objects are favoured over strings because they can hold more information and are more flexible in an application.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<!-- Using ng-options -->
+	<select ng-model="selectedName" ng-options="x for x in names">
+	</select>
+
+	<!-- Using ng-repeat -->
+	<select>
+	<option ng-repeat="x in names">{{x}}</option>
+	</select>
+
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope){
+		$scope.names = ["Alan", "Niall", "Sean"];
+	});	
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!--
+	AngularJS has its own HTML events directives.
+	You can add AngularJS event listeners to your HTML elements by using one or more of these directives examples: ng-blur, ng-change, ng-click, ng-copy, ng-cut, ng-dblclick, ng-focus, ng-keydown etc.
+
+	Event directives allows us to run AngularJS functions at certain user events.
+	AngularJS events will not overwrite a HTML event. Both will be executed.
+
+	You can use an event directive to toggle true and false. This example demonstrates how to hide and show a piece of HTML code, like a dropdown, when a button acts as a toggle between true and false.
+
+	Each time the myFunc() function is called on the button click, the value of showMe is reversed from true to false and false to true.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<button ng-click="myFunc()">Click Me</button>
+	<div ng-show="showMe">
+		<h2>Menu:</h2>
+		<div>Pasta</div>
+		<div>Curry</div>
+		<div>Pizza</div>
+	</div>
+</div>
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope){
+		$scope.showMe = false;
+		$scope.myFunc = function() {
+			$scope.showMe = !$scope.showMe;
+		}
+	});
+</script>
+</body>
+</html>

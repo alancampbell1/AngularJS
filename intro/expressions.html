@@ -1,0 +1,50 @@
+<!--
+	AngularJS binds data to HTML using Expressions.
+	Expressions can be written inside double braces {{ expression }} or
+	written inside a directive, e.g. ng-bind = " expression ".
+
+	AngularJS will resolve the expression and return the result where the expression was written.
+
+	AngularJS expressions are like JavaScript Expressions. They contain literals, objects and variables.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+	<div ng-app="">
+		<p>My First Expression: {{ 5 + 5 }}</p>
+	</div>
+
+	<!-- Missing the ng-app directive -->
+	<div>
+		<p>My First Expression: {{ 5 + 5 }}</p>
+	</div>
+
+
+	<!-- Expressions can do other things such as change CSS -->
+	<div ng-app = "" ng-init="myCol='blue' ">
+		<input style = "background-color: {{myCol}}" ng-model="myCol">
+	</div>
+
+</body>
+</html>
+
+<!--
+	AngularJS Expressions vs JavaScript Expressions:
+	Both JavaScript and AngularJS expressions can contain literals, operators and variables.
+	AngularJS expressions can be written inside HTML.
+	JavaScript expressions support conditionals, loops and exceptions.
+	AngularJS expressions support filters.
+-->
+
+
+
+
+
+
+
+

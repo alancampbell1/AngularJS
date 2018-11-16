@@ -1,0 +1,33 @@
+<!--
+	Data Binding is a technique to bind data sources from the provider and consumer together and synchronizes them.
+	In AngularJS it is the synchronization between the model and the view.
+
+	The ng-model directive can be used to bind data from the model to the view on HTML controls, such as input, select, textarea options.
+
+	The ng-model directive provides a two-way binding between the model and the view.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<input ng-model="firstname">
+</div>
+
+<body>
+	<script>
+		//This is an example of a data model.
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function ($scope){
+			$scope.firstname = "Alan";
+			$scope.lastname = "Campbell";
+		});
+	</script>
+	
+</body>
+</html>

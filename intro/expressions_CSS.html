@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+	<!-- Expressions can do other things such as change CSS -->
+	<div ng-app = "" ng-init="myCol='blue' ">
+		<input style = "background-color: {{myCol}}" ng-model="myCol">
+	</div>
+
+</body>
+</html>

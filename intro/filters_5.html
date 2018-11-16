@@ -1,0 +1,50 @@
+<!--
+	Filters can be added in AngularJS to format/transform data.
+	Examples include:
+	- currency: format a number to a currency format
+	- date: format a date to a specified format
+	- filter: select a subset of items from an array
+	- json: format an object to a JSON string
+
+	This example shows how an 'orderByMe' filter is added to the 'ng-click' directive in the table headers, allowing us to re-order the table by name or country respectively.
+
+	Clicking on the headers means a function entitled orderByMe is run and the orderBy filter is activated, sorting the names or countries in alphabetical order
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+<table border="1" width="100%">
+	<tr>
+		<th ng-click="orderByMe('name')">Name</th>
+		<th ng-click="orderByMe('country')">Country</th>
+	</tr>
+	<tr ng-repeat = "x in names | orderBy:myOrderBy">
+		<td>{{x.name}}</td>
+		<td>{{x.country}}</td>
+	</tr>
+</table>
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name: 'Alan', country: 'Ireland'},
+        {name: 'Niall', country: 'USA'},
+        {name: 'Martina', country: 'England'},
+        {name: 'Grace', country: 'Australia'},
+        {name: 'Paul', country: 'Spain'},
+    ];
+    $scope.orderByMe = function(x){
+    	$scope.myOrderBy = x;
+    }
+});
+</script>
+	
+</body>
+</html>

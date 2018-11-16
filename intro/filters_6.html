@@ -1,0 +1,48 @@
+<!--
+	Filters can be added in AngularJS to format/transform data.
+	Examples include:
+	- currency: format a number to a currency format
+	- date: format a date to a specified format
+	- filter: select a subset of items from an array
+	- json: format an object to a JSON string
+
+	You can also create your own filter. This is done by registering a new filter factory function with your module.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<ul ng-app="myApp" ng-controller="namesCtrl">
+	<li ng-repeat="x in names">
+		{{x | myFormat}}
+	</li>
+</ul>
+
+<script>
+	//This is a custom filter that makes every other character in the names uppercase
+	var app = angular.module('myApp', []);
+	app.filter('myFormat', function() {
+		return function (x){
+			var i, c, txt = "";
+			for(i = 0; i < x.length; i++){
+				c = x[i];
+				if(i % 2 == 0){
+					c = c.toUpperCase();
+				}
+				txt += c;
+			}
+			return txt;
+		};
+	});
+
+	app.controller('namesCtrl', function($scope){
+		$scope.names = ['Alan', 'Niall', 'Martina', 'Grace'];
+	});
+</script>
+	
+</body>
+</html>

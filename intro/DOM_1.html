@@ -1,0 +1,44 @@
+<!--
+	AngularJS has directives for binding application data to the attributes of HTML DOM elements.
+	DOM Recap:
+	When a webpage is loaded, the browser creates a Document Object Model of the page. The HTML DOM model can be viewed as a tree of Objects.
+	With the object model, JavaScript (and AngularJS) can carry out commands to make the HTML webpage more dynamic including:
+	- Changing HTML elements in a page
+	- Changing HTML attributes in a page
+	- Changing CSS styles in a page
+	- Removing existing HTML elements and attributes
+	- Adding new HTML elements and attributes
+	- Reacting to existing HTML events in a page
+	- Creating new HTML events in a page
+
+	The 'ng-disabled' directive binds AngularJS application data to the disabled attribute of HTML elements.
+
+	App explained:
+	- The ng-disabled directive binds the application data 'mySwitch' to the HTML button's disabled attribute
+	- The ng-model directive binds the value of the HTML checkbox element to the value of mySwitch, either true or false
+	- If the value of mySwitch is true, the button comes disabled and unable to work
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="" ng-init="mySwitch=true">
+	<p>
+		<button ng-disabled="mySwitch">Click Me</button>
+	</p>
+	<p>
+		<input type="checkbox" ng-model="mySwitch"/>Button
+	</p>
+	<p>
+		{{ mySwitch }}
+	</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!--
+	The ng-model directive binds the value of HTML controls (input, select, textarea) to application data
+	Using ng-model directive can provide type validation for application data, such as email, number etc.
+	In this example, the text 'Not a valid email address' will appear if the email address is not valid
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+	<form ng-app="" name="myForm">
+		Email:
+		<input type="email" name="myAddress" ng-model="text">
+		<span ng-show="myForm.myAddress.$error.email">Not a valid email address</span>
+	</form>
+</body>
+
+
+</html>

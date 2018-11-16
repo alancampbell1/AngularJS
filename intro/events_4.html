@@ -1,0 +1,39 @@
+<!--
+	AngularJS has its own HTML events directives.
+	You can add AngularJS event listeners to your HTML elements by using one or more of these directives examples: ng-blur, ng-change, ng-click, ng-copy, ng-cut, ng-dblclick, ng-focus, ng-keydown etc.
+
+	Event directives allows us to run AngularJS functions at certain user events.
+	AngularJS events will not overwrite a HTML event. Both will be executed.
+	
+	You can pass the $event object as an argument when calling a function. The $event object contains the browser's event object.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<!-- The event object is passed as a parameter to myFunc() -->
+	<h2 ng-mousemove="myFunc($event)">Mouse over me</h2>
+	<p>Coordinates: {{ x + ' , ' + y }}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope){
+		//myE represents the $event object
+		$scope.myFunc = function(myE){
+			//clientX returns information about where the mouse is which is stored in scope.x and printed to the screen
+			$scope.x = myE.clientX;
+			$scope.y = myE.clientY;
+		}
+	});
+</script>
+</body>
+</html>

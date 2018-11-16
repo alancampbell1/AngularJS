@@ -1,0 +1,34 @@
+<!--
+	Data Binding is a technique to bind data sources from the provider and consumer together and synchronizes them.
+	In AngularJS it is the synchronization between the model and the view.
+
+	Two-way binding is data binding in AngularJS that is synchronous between the model and the view.
+	When the model changes so does the view and vice versa. This happens immediately and automatically.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	Name: <input ng-model="firstname">
+	<!-- We display the following h2 to show how the model is changing from the view's update -->
+	<h2>{{firstname}}</h2>
+</div>
+
+<body>
+	<script>
+		//This is an example of a data model.
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function ($scope){
+			$scope.firstname = "Alan";
+			$scope.lastname = "Campbell";
+		});
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--
+	$http is an AngularJS service for reading data from remote servers. It makes a request to a server and returns the response.
+
+	The following example uses the get() method of the $http service. get() is an example of a short cut method. Several others include:
+	- .delete()
+	- .head()
+	- .jsonp()
+	- .post()
+	- .put()
+
+	The data you get from the response is expected to be in JSON format. JSON is an excellent way of transporting data and easy to use with AngularJS.
+
+	The following example GET's JSON data from an online source, wraps it on an array called 'records' and uses 'ng-repeat' to print it to the screen.
+
+	Breakdown of what is happening:
+	- The application defines a myCtrl controller, with a $scope and $http object
+	- $http is an XMLHttpRequest object used to request external data
+	- $http.get() reads JSON data from the link provided
+	- If successful, 'myData' stores the information from the server and x.id requests specific 'id' data and name requests specific 'name' data.
+	- ng-repeat means this is repeated for each JSON entry
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<ul>
+		<li ng-repeat="x in myData">
+			{{ x.id + ": " + x.name }}
+		</li>
+	</ul>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http){
+		//making a GET request to return the data from online link
+		$http.get("https://jsonplaceholder.typicode.com/users")
+		.then(function(response){
+			//.data contains the string/object carrying the response
+			$scope.myData = response.data;
+		},
+		function (response){
+			//this second function only runs if the GET response did not work
+			$scope.myData = "Something went wrong";
+		});
+	});
+	
+	
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!--
+	A service, in AngularJS, is a function or an object that is available for and limited to your AngularJS application.
+
+	AngularJS allows you to use one of their 30 in-built services or create one your self.
+
+	You can create your own service by connecting your service to the module.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<p>Today's welcome message</p>
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>{{ hex }}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	//Custom service created called hexafy. It changes a passed in value to its hex equivalent and returns this to the scope variable 'hex'
+	app.service('hexafy', function(){
+		this.myFunc = function(x){
+			return x.toString(16);
+		}
+	});
+	//Custom function is passed in as parameter and called with the value 255 passed to it.
+	app.controller('myCtrl', function($scope, hexafy) {
+		$scope.hex = hexafy.myFunc(255);
+	});
+</script>
+	
+</body>
+</html>

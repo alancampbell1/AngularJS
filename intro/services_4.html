@@ -1,0 +1,37 @@
+<!--
+	A service, in AngularJS, is a function or an object that is available for and limited to your AngularJS application.
+
+	AngularJS allows you to use one of their 30 in-built services or create one your self.
+
+	This example builds on the previous one and shows how a service is used inside a filter. To do so we add it as a dependency when defining the filter.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp"">
+	<p>{{ 255 | myFormat }}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.service('hexafy', function() {
+    	this.myFunc = function (x) {
+    	    return x.toString(16);
+    	}
+	});
+	//We have created a that calls the 'hexafy' service. So in the div we can go '| myFormat' and the 'hexafy' service will call its function to convert the accompanying digit to hexadecimal
+	app.filter('myFormat',['hexafy', function(hexafy) {
+    	return function(x) {
+        	return hexafy.myFunc(x);
+    	};
+	}]);
+</script>
+
+	
+</body>
+</html>

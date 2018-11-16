@@ -1,0 +1,35 @@
+<!--
+	Data Binding is a technique to bind data sources from the provider and consumer together and synchronizes them.
+	In AngularJS it is the synchronization between the model and the view.
+
+	AngularJS applications usually have a data model. This is a collection of data available to the application.
+
+	The HTML container is where the AngularJS application is displayed. This is also called the view. The view has access to the model (which is a collection of data) and there are several ways of displaying the model's data in the view.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<!-- This HTML container allows us to display the model's data -->
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p ng-bind="firstname"></p>
+	<!-- An alternative to ng-bind is {{}} -->
+	<p>{{lastname}}</p>
+</div>
+
+<body>
+	<script>
+		//This is an example of a data model.
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function ($scope){
+			$scope.firstname = "Alan";
+			$scope.lastname = "Campbell";
+		});
+	</script>
+	
+</body>
+</html>

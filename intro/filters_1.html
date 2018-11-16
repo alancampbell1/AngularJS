@@ -1,0 +1,36 @@
+<!--
+	Filters can be added in AngularJS to format/transform data.
+	Examples include:
+	- currency: format a number to a currency format
+	- date: format a date to a specified format
+	- filter: select a subset of items from an array
+	- json: format an object to a JSON string
+
+	Filters can be added to expressions by using the pipe character | followed by the filter.
+	Remember, an expression is what binds AngularJS data to HTML, example: double curly brackets {{ }}
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+	<!-- In this example, | uppercase changes Campbell to CAMPBELL -->
+	<p>The name is {{ lastname | uppercase }}</p>	
+</div>
+
+<script>
+	angular.module('myApp', []).controller('personCtrl', function($scope){
+		$scope.firstname = "Alan",
+		$scope.lastname = "Campbell"
+	});
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+	AngularJS can validate input data. This is client-side form validation and AngularJS monitors the state of the form and input fields (input, textare, select) and lets you notify the user about the current state.
+	You can use standard HTML5 attributes to validate input or make your own validation functions.
+
+	AngularJS adds CSS classes to forms and input fields depending on their states. The following classes are added to and removed from input fields:
+	ng-untouched - the field has not been touched yet
+	ng-touched - the field has been touched
+	ng-pristine - the field has not been modified yet
+	ng-dirty - the field has been modified
+	ng-valid - the field content is valid
+	ng-invalid - the field content is not valid
+	ng-valid-key - one key for each validation
+	ng-invalid-key
+
+	The following classes are added to, removed from, forms:
+	ng-pristine, ng-dirty, ng-valid, ng-invalid, ng-valid-key, ng-invalid-key
+	The classes are removed if the value they represent is false. 
+
+	The following is an example of changing CSS style when the user enters information.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+	input.ng-invalid{
+		background-color: pink;
+	}
+	input.ng-valid{
+		background-color: lightgreen;
+	}
+</style>
+
+<body ng-app="">
+	<form name="myForm">
+		<p>Name: 
+			<input name="myName" ng-model="myName" required>
+		</p>
+	</form>
+</body>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!--
+	$http is an AngularJS service for reading data from remote servers. It makes a request to a server and returns the response.
+
+	The following example uses the get() method of the $http service. get() is an example of a short cut method. Several others include:
+	- .delete()
+	- .head()
+	- .jsonp()
+	- .post()
+	- .put()
+
+	By using the get() method the response is an object with several properties including:
+	- .config - the object used to generate the request
+	- .data - a string, or object, carrying the response
+	- .headers - a function to get header information
+	- .status - a number defining the HTTP status
+	- .statusText - a string defining the HTTP status
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>Today's message: </p>
+	<h2>{{ myWelcome }}</h2>
+	
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http){
+		//making a GET request to return the data from welcome.html
+		$http.get("welcome.html")
+		.then(function(response){
+			//.data contains the string/object carrying the response
+			$scope.myWelcome = response.data;
+		},
+		function (response){
+			//this second function only runs if the GET response did not work
+			$scope.myWelcome = "Something went wrong";
+		});
+	});
+	
+	
+</script>
+
+	
+</body>
+</html>

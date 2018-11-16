@@ -1,0 +1,32 @@
+<!--
+	The scope is the binding part between the HTML (view) and the JavaScript (controller).
+	The scope is an object with the available properties and methods.
+	It is also available for both the view and controller.
+
+	When you make a controller, you pass the $scope object as an argument. This allows you to add properties to the $scope object in the controller and thus the view (HTML) can get access to their properties.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<!-- NOTE: we do not need to refer to the $scope variable when accessing carname -->
+	<h2>{{carname}}</h2>
+</div>
+
+<body>
+	<script>
+		var app = angular.module('myApp', []);
+		//scope is passed in as a parameter
+		app.controller('myCtrl', function($scope){
+			//we can add variables to the scope object that can be accessed in the above div element
+			$scope.carname = "Toyota";
+		});
+	</script>
+	
+</body>
+</html>

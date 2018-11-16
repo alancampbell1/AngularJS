@@ -1,0 +1,26 @@
+<!--
+	In this example we will add a Controller to the application. 
+	It will be refered to as the ng-controller directive.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+	<div ng-app = "myApp" ng-controller="myCtrl">{{ firstname + " " + lastname}}</div>
+
+	<script>
+		var app = angular.module("myApp", []);
+
+		app.controller("myCtrl", function($scope){
+			$scope.firstname = "Alan";
+			$scope.lastname = "Campbell";
+		});
+	</script>
+
+</body>
+</html>

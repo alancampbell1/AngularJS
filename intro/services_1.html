@@ -1,0 +1,32 @@
+<!--
+	A service, in AngularJS, is a function or an object that is available for and limited to your AngularJS application.
+
+	AngularJS allows you to use one of their 30 in-built services or create one your self.
+
+	This example demonstrates the $location service that has methods to return information about the location of the current web page.
+
+	The main reason to use services, like $location, over objects already in the DOM, such as window.location, services work better when you want your webpage to be dynamic, hence the point of AngularJS.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>{{ myUrl }}</p>
+</div>
+
+<script>
+	var app = angular.module('myApp', []);
+	//The $location service is passed into the controller as an argument. To use the service in the controller, it must be defined as a dependency.
+	app.controller('myCtrl', function($scope, $location) {
+		//We are using the $location service to access the absUrl() method. This method returns the absolution url to the page
+		$scope.myUrl = $location.absUrl();
+	});
+</script>
+	
+</body>
+</html>

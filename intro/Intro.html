@@ -1,0 +1,36 @@
+<!--
+
+	AngularJS extends HTML using ng-directives.
+	The 'ng-app' directive defines an AngularJS application
+	The 'ng-model' directive binds the value of HTML controls (input, select, textarea) to the application
+	The 'ng-bind' directive binds application data to the HTML view.
+
+	The following example uses all three. As a name is typed into the input box, it is printed to the screen in the ng-bind paragraph
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+	<div ng-app="">
+		<p>Name:<input type="text" ng-model="name"></p>
+		<p ng-bind = "name"></p>
+	</div>
+
+</body>
+</html>
+
+<!--
+	
+	Code explained:
+	AngularJS starts when the page is loaded.
+	The ng-app directive tells AngularJS that the <div> element is the 'owner' of the AngularJS application.
+	The ng-model directive binds the value of the input field to the application variable 'name'.
+	The ng-bind directive binds the content of the <p> element to the 
+	application variable 'name', printing it to the screen as each letter is typed in.
+
+-->

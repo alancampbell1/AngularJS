@@ -1,0 +1,52 @@
+<!--
+	AngularJS can validate input data. This is client-side form validation and AngularJS monitors the state of the form and input fields (input, textare, select) and lets you notify the user about the current state.
+	You can use standard HTML5 attributes to validate input or make your own validation functions.
+
+	It is possible to create your own custom validation in AngularJS. To do so, you have to add a new directive to your application and deal with validation inside a function with certain specified arguments.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<body ng-app="myApp">
+	<p>Try writing in the input field:</p>
+	<form name="myForm">
+		<!-- New directive 'my-directive' is required to be used -->
+		<input name="myInput" ng-model="myInput" required my-directive>
+	</form>
+	<p>The input's valid state is {{myForm.myInput.$valid}}</p>
+
+	<script>
+		var app = angular.module('myApp', []);
+		//New directive is created called my-directive
+		app.directive('myDirective', function(){
+			//returned is an object
+			return {
+				//returning object requires the ngModel which is an ngModelController
+				require: 'ngModel',
+				//linking function created that takes some arguments, including the 'mCtrl' which is the ngModelController
+				link: function(scope, element, attr, mCtrl){
+					function myValidation(value){
+						//tests if the value 'e' is included, returning true or false within the object stored under $valid
+						if(value.indexOf("e") > -1){
+							mCtrl.$setValidity('charE', true);
+						} else {
+							mCtrl.$setValidity('charE', false);
+						}
+						return value;
+					}
+					//This will add the myValidation function to an array of other functions which will be executed every time the input value changes.
+					mCtrl.$parsers.push(myValidation);
+				}
+			};
+		});
+	</script>
+</body>
+
+</body>
+</html>

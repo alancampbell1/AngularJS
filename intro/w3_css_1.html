@@ -1,0 +1,115 @@
+<!--
+	W3.CSS is a modern CSS framework with built-in responsiveness. It supports responsive mobile first design by default and is smaller/faster than similar CSS frameworks.
+	It can speed up and simplify web development because it is easier to learn and use than other CSS frameworks.
+
+	You can use w3.css style sheets together with AngularJS. Make sure to include the link in the head element of your application.
+
+	The following is a full application developed using AngularJS and w3.css for styling.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Application</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body ng-app="myApp" ng-controller="userCtrl">
+	<div class="w3-container">
+		<h2>Users</h2>
+		<table class="w3-table w3-bordered w3-striped">
+			<tr>
+				<th>Edit</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
+			<!-- We loop through the users to display their information -->
+			<tr ng-repeat="user in users">
+				<td>
+					<button class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit</button>
+				</td>
+				<td>{{ user.fName }}</td>
+				<td>{{ user.lName }}</td>
+			</tr>
+		</table>
+		<br>
+
+		<button class="w3-btn w3-green w3-ripple" ng-click="editUser('new')">&#9998; User</button>
+
+		<form ng-hide="hideform">
+			<h3 ng-show="edit">Create New User:</h3>
+			<h3 ng-show="edit">Edit User:</h3>
+			<label>First Name:</label>
+			<input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit" placeholder="First Name">
+			<br>
+			<label>Last Name:</label>
+			<input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit" placeholder="Last Name">
+			<br>
+			<label>Password:</label>
+			<input class="w3-input w3-border" type="password" ng-model="passw1" ng-disabled="!edit" placeholder="Password">
+			<br>
+			<label>Repeat Password:</label>
+			<input class="w3-input w3-border" type="password" ng-model="passw2" ng-disabled="!edit" placeholder="Repeat Password">
+			<br>
+			<button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#1004; Save Changes</button>			
+		</form>
+	</div>
+
+	<script>
+		angular.module('myApp', []).controller('userCtrl', function($scope){
+			$scope.fName = '';
+			$scope.lName = '';
+			$scope.passw1 = '';
+			$scope.passw2 = '';
+			$scope.users = [
+				{id:1, fName:'Alan', lName:'Campbell'},
+				{id:2, fName:'Niall', lName:'Campbell'},
+				{id:3, fName:'Martina', lName:'Campbell'},
+				{id:4, fName:'Grace', lName:'Campbell'}
+			];
+
+			$scope.edit = true;
+			$scope.error = false;
+			$scope.incomplete = false;
+			$scope.hideform = true;
+			$scope.editUser = function(id){
+				$scope.hideform = false;
+				if(id == 'new'){
+					$scope.edit = true;
+					$scope.incomplete = true;
+					$scope.fName = '';
+					$scope.lName = '';
+				} else {
+					$scope.edit = false;
+					$scope.fName = $scope.users[id-1].fName;
+					$scope.lName = $scope.users[id-1].lName;
+				}
+			};
+
+			$scope.$watch('passw1', function() {$scope.test();});
+			$scope.$watch('passw2', function() {$scope.test();});
+			$scope.$watch('fName', function() {$scope.test();});
+			$scope.$watch('lName', function() {$scope.test();});
+
+			//The purpose of this function is to test if the two passwords are equal
+			$scope.test = function() {
+				if($scope.passw1 !== $scope.passw2){
+					$scope.error = true;
+				} else {
+					$scope.error = false;
+				}
+				$scope.incomplete = false;
+				if($scope.edit && (!$scope.fName.length ||
+					!$scope.lName.length ||
+					!$scope.passw1.length || 
+					!$scope.passw2.length)) {
+					$scope.incomplete = true;
+				}
+			};
+		});
+
+
+	</script>
+</body>
+</html>

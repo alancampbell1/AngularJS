@@ -1,0 +1,17 @@
+<!--
+	Strings work the same. They can be assigned to a variable and
+	concatenated like normal within the {{ }}
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+	<div ng-app="" ng-init="firstname='John';lastname='Doe'">
+		<p>The name is {{firstname + " " + lastname}}</p>
+	</div>
+</body>
+</html>

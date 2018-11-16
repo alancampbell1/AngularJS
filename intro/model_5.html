@@ -1,0 +1,29 @@
+<!--
+	The ng-model directive binds the value of HTML controls (input, select, textarea) to application data
+	The ng-model directive provides CSS classes for HTML elements, depending on their status.
+
+	In this example, the input box changes colour when in use.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Expressions</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+	input.ng-valid {
+		background-color: lightblue;
+	}
+</style>
+
+<body>
+	<form ng-app="" name="myForm">
+		Enter your name:
+		<input name="myName" ng-model="myText" required>
+	</form>
+</body>
+
+
+</html>
