@@ -1,0 +1,1 @@
+This project builds upon the introduction to AngularJS and builds a working tribute page as a specific theme.

@@ -1,0 +1,32 @@
+<!--
+	Basic AngularJS project.
+	A tribute page for Xbox Gaming Console.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Services</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="app.js"></script>
+
+</head>
+
+<body>
+
+	<div class="text-center" ng-app="app" ng-controller="controller1">
+		<h1>{{xbox.heading}}</h1>
+		<h3>{{xbox.subheading}}</h3>
+		<img ng-src="{{xbox.imgURL}}">
+		<h3>{{xbox.subheading2}}</h3>
+		<!-- Using the ng-repeat directive to loop through the array of objects -->
+		<ul ng-repeat="moment in moments">
+			<li>{{moment.moment}}</li>
+		</ul>
+		<h5>{{xbox.subheading3}}<a ng-href="{{ xbox.wikiURL }}" target="blank">Xbox Wikipedia</h5>
+	</div>
+
+</body>
+</html>
