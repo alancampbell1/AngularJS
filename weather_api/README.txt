@@ -1,0 +1,1 @@
+This project builds upon the introduction to AngularJS and builds a weather API page for your current location.

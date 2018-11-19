@@ -1,0 +1,35 @@
+<!--
+	Basic AngularJS project.
+	A Weather API Page
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Weather API</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="app.js"></script>
+
+</head>
+
+<body ng-app="weatherApp" ng-controller="weatherCtrl">
+	
+	<div align="center">
+	<h2>{{channelInfo.heading}}</h2>
+	<h4>{{channelInfo.subheading1}}</h4>
+	<h4>{{channelInfo.subheading2.name}}</h4>
+	<h5> <a ng-href="{{ channelInfo.subheading2.link }}" target="blank">{{channelInfo.subheading2.title}}</a></h5>
+	
+	<br>
+
+	<h5>The following is the current weather in {{name}}</h5>
+	<p>Description: {{description}}</p>
+	<p>Wind Speed: {{speed}}</p>
+	<p>Temperature: {{cTemp}} / {{fTemp}}</p>
+	
+	</div>
+
+</body>
+</html>
