@@ -1,0 +1,1 @@
+This project demonstrates full CRUD (Create, Retrieve, Update, Delete) functionality in a SPA (Single Page Application) using AngularJS and Google Firebase (2018 edition).
