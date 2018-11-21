@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Single Page Application</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="script.js"></script>
+
+    <meta charset="utf-8">
+    <base href="/">
+</head>
+	<!-- This header will remain static throughout the entire app -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS Single Page Application</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/home"><i class="fa fa-home"></i>Home</a></li>
+					<li><a href="about"><i class="fa fa-home"></i>About</a></li>
+					<li><a href="contact"><i class="fa fa-home"></i>Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+<body ng-controller="mainCtrl">
+
+	<div id="main">
+		<!-- This is where the HTML content from the other pages will be inserted -->
+		<div ng-view></div>
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
